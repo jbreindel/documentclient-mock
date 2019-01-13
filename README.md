@@ -50,7 +50,7 @@ client.get({
 
 `documentClient` has three options in its parameter:
 
-* `defns` - a hash of table name to table definition
+* `defns` - a hash of table name to [table definition](https://awslabs.github.io/aws-cdk/refs/_aws-cdk_aws-dynamodb.html#@aws-cdk/aws-dynamodb.CfnTableProps)
 * `tables` - a hash of table name to partitions
 * `fn` - a function wrapper for client methods. example  [jest.fn](https://jestjs.io/docs/en/mock-functions)
 
