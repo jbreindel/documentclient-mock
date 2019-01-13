@@ -1,4 +1,4 @@
-### documentclient-mock
+## documentclient-mock
 
 documentclient-mock is a mock implementation of [AWS.DynamoDB.DocumentClient](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html).
 While it is a work in progress, it has many of the main features of DocumentClient implemented and operates all in memory. It even includes
@@ -7,13 +7,13 @@ The main purpose is to allow you to create databases in memory to test business 
 
 #### Installation
 
-```
+```bash
 npm install --save-dev documentclient-mock
 ```
 
 #### Usage
 
-```
+```js
 const documentClient = require('documentclient-mock');
 const client = documentClient({
   defns: {
