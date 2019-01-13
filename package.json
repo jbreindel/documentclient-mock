@@ -1,0 +1,21 @@
+{
+  "name": "documentclient-mock",
+  "version": "0.1.0",
+  "description": "mocks dynamodb document client",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/jest/bin/jest.js test/**/*.js --config .jest.config.js",
+    "generate-parsers": "antlr4-tool -l js -o parser/condition grammar/condition.g4 && antlr4-tool -l js -o parser/update grammar/update.g4",
+    "lint": "node_modules/eslint/bin/eslint.js ."
+  },
+  "author": "Jacob Breindel",
+  "license": "ISC",
+  "dependencies": {
+    "antlr4": "^4.7.2"
+  },
+  "devDependencies": {
+    "antlr4-tool": "^1.0.26",
+    "eslint": "^5.12.0",
+    "jest": "^23.6.0"
+  }
+}
