@@ -1,5 +1,7 @@
 ## documentclient-mock
 
+[![Build Status](https://travis-ci.com/jbreindel/documentclient-mock.svg?token=HCdCBj7wXwdMBx4QTSfq&branch=master)](https://travis-ci.com/jbreindel/documentclient-mock)
+
 documentclient-mock is a mock implementation of [AWS.DynamoDB.DocumentClient](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html).
 While it is a work in progress, it has many of the main features of DocumentClient implemented and operates all in memory. It even includes
 expression evaluators for [condition expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.OperatorsAndFunctions.html) and [update expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html).
