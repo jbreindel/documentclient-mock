@@ -9,7 +9,7 @@
     "lint": "node_modules/eslint/bin/eslint.js ."
   },
   "author": "Jacob Breindel",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "antlr4": "^4.7.2"
   },
