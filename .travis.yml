@@ -3,7 +3,7 @@ node_js:
 - node
 branches:
   except:
-  - "/^[0-9]*.[0-9]*.[0-9]*/"
+  - "/^[0-9]*\\.[0-9]*\\.[0-9]*/"
 env:
   global:
     secure: JVvjFOY05FFBRNuE0+bDXNB2nhyb4ZuwJx8atDf+69BOjyYQOZW+Zxu/7FNA5b7rHQTurQZqTa4VjbAOvQi9kPsKyiIZgKk/lcrbbP74o7lvgEl5Jq7Od/YgEw6ps1e3El+v1HjiRcsL3DwbfOvGoIfOuiEwkTvu/7sNVBTq8Pyl7FhPJe1k5tebQJHuk3IKKrzEGf9izFvIDCd/kzqhiiUwDaA+kfyM3wjJ/TxzueypwUT4dGnuuGsxdDkXgxSceh/MiwXzk7yQSrk6UF3K/Qe3EsH3KKKHkOR1boiuPAGbyfrxqiu2x1WtbfkNviQGjN1KrswpNbGxQ5bUgIML7/jpp+BNNQTd9oJD6PYa89VtpCq58ZlBmrWFzO6+WipsR5S2ethFN2meNEwBUHwsoxObakoO29TDpBqPqVPTjmAomeHlvUcNquPI36dsOHOWB+UILSJ57uEXXmc3Wy2uwjcTvJK2YqvKE8HL0TbjZH39KHTrMHsBDNty7oLexbWd0zA9JNjvnv3gfua9Mgs8kg3MrlBAN2YKtmI5K7cc5tlGC8yvDArMKbJXszYuA89eWi+rrzpPN32p13OftmVV1BV9byEB4L9MHzszLrl7+rl2yTXoHgGAR64jcF+kge6XSufesNOsC5g/OxGuzRRAXL69rBxHXlPysChItfRgCkY=
