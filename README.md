@@ -62,3 +62,8 @@ Contributions are welcomed as not all of the functionality is implemented yet.
 There is some low hanging fruit with `TODO`s sprinkled throughout the code.
 If a new feature is implemented or a change is made please add a corresponding test.
 Also please ensure all lint checks and tests pass.
+
+#### Versioning
+
+All patch versions are computed from previous tags on the master branch.
+To bump a version please increment the major or minor version in `package.json` before making the pull request.
