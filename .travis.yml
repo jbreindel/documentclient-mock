@@ -11,10 +11,11 @@ install:
   - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
   - cd $TRAVIS_REPO_SLUG
   - git checkout -qf $TRAVIS_COMMIT
+  - npm ci
+  - npm install --only=dev
 script:
 - npm run lint
 - npm test
-- npm install --only=dev
 before_deploy: npm-auto-version
 deploy:
   provider: npm
