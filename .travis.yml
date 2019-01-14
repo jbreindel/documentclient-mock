@@ -3,11 +3,11 @@ node_js:
 - node
 branches:
   except:
-  - /^v[0-9]/
+  - "/^v[0-9]/"
 env:
   global:
   - secure: JVvjFOY05FFBRNuE0+bDXNB2nhyb4ZuwJx8atDf+69BOjyYQOZW+Zxu/7FNA5b7rHQTurQZqTa4VjbAOvQi9kPsKyiIZgKk/lcrbbP74o7lvgEl5Jq7Od/YgEw6ps1e3El+v1HjiRcsL3DwbfOvGoIfOuiEwkTvu/7sNVBTq8Pyl7FhPJe1k5tebQJHuk3IKKrzEGf9izFvIDCd/kzqhiiUwDaA+kfyM3wjJ/TxzueypwUT4dGnuuGsxdDkXgxSceh/MiwXzk7yQSrk6UF3K/Qe3EsH3KKKHkOR1boiuPAGbyfrxqiu2x1WtbfkNviQGjN1KrswpNbGxQ5bUgIML7/jpp+BNNQTd9oJD6PYa89VtpCq58ZlBmrWFzO6+WipsR5S2ethFN2meNEwBUHwsoxObakoO29TDpBqPqVPTjmAomeHlvUcNquPI36dsOHOWB+UILSJ57uEXXmc3Wy2uwjcTvJK2YqvKE8HL0TbjZH39KHTrMHsBDNty7oLexbWd0zA9JNjvnv3gfua9Mgs8kg3MrlBAN2YKtmI5K7cc5tlGC8yvDArMKbJXszYuA89eWi+rrzpPN32p13OftmVV1BV9byEB4L9MHzszLrl7+rl2yTXoHgGAR64jcF+kge6XSufesNOsC5g/OxGuzRRAXL69rBxHXlPysChItfRgCkY=
-  - secure: lQ46PAExOoZDPl5+h61gA29jTwnt1W1EFU2ICCSMEs+5m9Y9YiYCa/j/HYUbUEGF+tOtspiE57mKW4JMKSnESfOWBnv8woEkN4F0I/p6YdAO0pgjJLOWh0VbtsKJeCl+6W0ATOCD68Yly0oUroXa5K9YW5dOdrmFw//07K3xVzF0hMpOr069rUrv04lbs0mY/wvn+fsVjf81k+cugB6nty9X4kgN2+CQPrd0eqSodcAFFe4HEUIo00vsdQqj7jQvxxmyVOIAZUt4X2+gBvvglZ7rw4HHBEvi//1SX/ssSnQhO08yMsTh3hKhrxiq4PvdRqlJe5tqcLx0lerTCenwOR8n8M4DHJKAuZYscJsjucf89wZ6zFSOM/6aJ/K5wkfjb5fhZURORTqw4s3T6B/MSV+2zgopE1rCy040r217kimKYQXGZuYBEOh86sahjTr9wsYvU82Q1f81fCBv8248PIhRUYU/urK5F2VvtY9yJUyWu2WlWzGCJyHtSjC6nWHOfETHQrmev7xSyhNBg4BHg4dyx5yAyb/y1GKWijOOOSW6TCrsdwIj0h4gTshNimWHchmxsojqq/eROIbdQh+kcZdSWEJS1bPHNrktXY8euBYmCpykKaYkHEB8+KQAItUEb8iOdUXfkym1RrWbI3NlYgeQln27c99j3HRX58wyGzU=
+  - secure: GW47z8HstNjwAySrCR8ZwBTHpgwSYAl/FkxD94p8nGrNXAGwnT973I5B/RCzveU5vkVOUp1sTwt35wENez1M9m4iSR+uVi7bZUv6+L9W+z6AgJcC/8qgmj2lu8h/mAvXFAamIoRg8Sd37qLEdSzoEtoe+tpbBkG3sEAzQ8nvYrugjKo8GM0TL7ZoA4KwnEfqsVCCrcsvV8tMFSyfEMYKDKi4PemOL8mMmM/qMdATtwbF9ne6o+RU/ZLBEnNz447pETRsSgwI5eWAsQSb1dkshTUHq7blCM1CGI8tlH3ozgR2JjzKQifNt6UooCP2Lo0RB0swYJs1URc/HiPvqYqdNIIpRenslgl3BoekzByYGYujXM052C9+b97ggRNTSoqxGnYrixIUXTlzqmAvzRzF3gWSN2GtfOJrxN2NLPVf3lXxBBZgKWRJeykFyXIokj2EcTsjk5+3ileIYdqDuLc7xqo0Hj9QhPhz3F1d1hREdqEJK7hYKYrh5UgLGP+TRI4lRbou4CnHAMBgrSOXUk7U3dWd/Ok513qufFBODkqYPPipFYRN/Do2JPwQV21E6RcWdjPPSqL10PylBxPSvz0Vz+6uBKK3/FlnxTRNai7vhiHBeCQs7qch9hzK1bMx7XQpPGYRD6R8kB00MksV39lwhqkp8LLnfdjIzvE2HdbIfmM=
 install:
 - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
 - cd $TRAVIS_REPO_SLUG
@@ -21,6 +21,8 @@ script:
 - npm run lint
 - npm test
 after_success:
-- if [ $TRAVIS_BRANCH = "master" ]; then ./node_modules/npm-auto-version/bin/npm-auto-version; fi
+- if [ $TRAVIS_BRANCH = "master" ]; then ./node_modules/npm-auto-version/bin/npm-auto-version;
+  fi
 - if [ $TRAVIS_BRANCH = "master" ]; then npm publish; fi
-- if [ $TRAVIS_BRANCH = "master" ]; then git push --quiet https://$GITHUBKEY@github.com/jbreindel/documentclient-mock --tags > /dev/null 2>&1; fi
+- if [ $TRAVIS_BRANCH = "master" ]; then git push --quiet https://$GITHUBKEY@github.com/jbreindel/documentclient-mock
+  --tags > /dev/null 2>&1; fi
