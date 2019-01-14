@@ -10,15 +10,16 @@ env:
 script:
 - npm run lint
 - npm test
-after_success:
-- git config --global user.email "builds@travis-ci.com"
-- git config --global user.name "Travis CI"
-- if [ $TRAVIS_BRANCH == "master" ]; then git push --quiet https://$GITHUBKEY@github.com/jbreindel/documentclient-mock tags > /dev/null 2>&1 fi
+- npm install --only=dev
 deploy:
-  provider: npm
-  email: j.breindel2@outlook.com
-  api_key:
-    secure: y/CZEqRb34hrKDl2Om5AgjIYeQQG/11U+/B0FoPR6DlBPWv44fccFLO/dmHWQay2HnTW4Fy44+XPmI3EbsojidpGwsNKf66zFdflgQLSMLmgT771zPWZx1jZVB2MR4kSzyP4uWoj/tmuaiC/IwXSgOZChStmizf8Cgy8WUuccvUSqne/NtgH87GMj5hucchWRszSMLM2rBGFHbmPAKezd4hK3Ln7/6j4YMdPAFb4RzrenhDZoZiav3bCrqj/wX1dNWsLrjQgHlkPO0y1PbWtFKDJhCzIe2qMAg0cuMZmPIApfyH1+GJVlU6QrZN9u48WvoxBdX5z57rb78xC3ehHUgG1K8x29vAm119WSjxdt6BiJJ583atlNH0mjR5fY2klPRpOCqMkVsoGtiIP8TdCA6T6D43d8PGVyyKCZhZv5WZPgy0a7zvALL0XC6Oavr7LbWsA7Al3v7Cv+cqDpesfxMzb0I6oCt8MXKajiv7wFGRskRBiVM2qePrrrHq9ywNk5nCg/HETOydqkvhVBb+wpBz6TSCp0FRrxplyBCw196MOhHNPxsWaVWmea1YjbTOZ59dISEx0FlmhDS5k2UJYQDcVoDIs5DkPuk7bUO6ZapvFGMC1KFjKpiCnOxJ0IiK/Dw9XWUpfoq2MpVBzSxoKerm4rzxGO799nmgP//WpwyA=
-  on:
-    branch: master
-    repo: jbreindel/documentclient-mock
+  - provider: npm
+    email: j.breindel2@outlook.com
+    api_key:
+      secure: y/CZEqRb34hrKDl2Om5AgjIYeQQG/11U+/B0FoPR6DlBPWv44fccFLO/dmHWQay2HnTW4Fy44+XPmI3EbsojidpGwsNKf66zFdflgQLSMLmgT771zPWZx1jZVB2MR4kSzyP4uWoj/tmuaiC/IwXSgOZChStmizf8Cgy8WUuccvUSqne/NtgH87GMj5hucchWRszSMLM2rBGFHbmPAKezd4hK3Ln7/6j4YMdPAFb4RzrenhDZoZiav3bCrqj/wX1dNWsLrjQgHlkPO0y1PbWtFKDJhCzIe2qMAg0cuMZmPIApfyH1+GJVlU6QrZN9u48WvoxBdX5z57rb78xC3ehHUgG1K8x29vAm119WSjxdt6BiJJ583atlNH0mjR5fY2klPRpOCqMkVsoGtiIP8TdCA6T6D43d8PGVyyKCZhZv5WZPgy0a7zvALL0XC6Oavr7LbWsA7Al3v7Cv+cqDpesfxMzb0I6oCt8MXKajiv7wFGRskRBiVM2qePrrrHq9ywNk5nCg/HETOydqkvhVBb+wpBz6TSCp0FRrxplyBCw196MOhHNPxsWaVWmea1YjbTOZ59dISEx0FlmhDS5k2UJYQDcVoDIs5DkPuk7bUO6ZapvFGMC1KFjKpiCnOxJ0IiK/Dw9XWUpfoq2MpVBzSxoKerm4rzxGO799nmgP//WpwyA=
+    on:
+      branch: master
+      repo: jbreindel/documentclient-mock
+  - provider: script
+    script: git push --quiet https://$GITHUBKEY@github.com/jbreindel/documentclient-mock tags > /dev/null 2>&1
+    on:
+      branch: master
