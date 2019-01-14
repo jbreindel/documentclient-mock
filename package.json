@@ -4,7 +4,6 @@
   "description": "mocks dynamodb document client",
   "main": "index.js",
   "scripts": {
-    "prepublish": "npm-auto-version",
     "test": "node_modules/jest/bin/jest.js test/**/*.js --config .jest.config.js",
     "generate-parsers": "antlr4-tool -l js -o parser/condition grammar/condition.g4 && antlr4-tool -l js -o parser/update grammar/update.g4",
     "lint": "node_modules/eslint/bin/eslint.js ."
