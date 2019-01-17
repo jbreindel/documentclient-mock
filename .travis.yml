@@ -21,7 +21,7 @@ script:
 - npm run lint
 - npm test
 after_success:
-- echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+- if [ $TRAVIS_BRANCH = "master" -a $TRAVIS_PULL_REQUEST = "false" ]; then echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc; fi
 - if [ $TRAVIS_BRANCH = "master" -a $TRAVIS_PULL_REQUEST = "false" ]; then ./node_modules/npm-auto-version/bin/npm-auto-version; fi
 - if [ $TRAVIS_BRANCH = "master" -a $TRAVIS_PULL_REQUEST = "false" ]; then npm publish; fi
 - if [ $TRAVIS_BRANCH = "master" -a $TRAVIS_PULL_REQUEST = "false" ]; then git push --quiet https://$GITHUBKEY@github.com/jbreindel/documentclient-mock --tags > /dev/null 2>&1; fi
