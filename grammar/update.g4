@@ -30,7 +30,7 @@ deleteaction
 setvalue
   : leftVal=setvalue PLUS rightVal=setvalue     #incSetValue
   | leftVal=setvalue MINUS rightVal=setvalue    #decSetValue
-  | setfunc                                     #setFuncSetValue
+  | func=setfunc                                #setFuncSetValue
   | op=OPERAND                                  #valSetValue
   ;
 

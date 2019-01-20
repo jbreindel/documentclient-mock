@@ -972,6 +972,7 @@ SetvalueContext.prototype.copyFrom = function(ctx) {
 
 function SetFuncSetValueContext(parser, ctx) {
 	SetvalueContext.call(this, parser);
+    this.func = null; // SetfuncContext;
     SetvalueContext.prototype.copyFrom.call(this, ctx);
     return this;
 }
@@ -1160,7 +1161,7 @@ updateParser.prototype.setvalue = function(_p) {
             _prevctx = localctx;
 
             this.state = 72;
-            this.setfunc();
+            localctx.func = this.setfunc();
             break;
         case updateParser.OPERAND:
             localctx = new ValSetValueContext(this, localctx);
