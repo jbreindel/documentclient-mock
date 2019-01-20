@@ -172,7 +172,40 @@ describe('client can update documents', () => {
     });
   });
 
-  test('delete from set document', async () => {
+  test('add to set', async () => {
+    const client = documentClient({
+      defns: {
+        TestTable: {
+          keySchema: [
+            {
+              keyType: 'HASH',
+              attributeName: 'partitionKey'
+            }
+          ],
+          attributeDefinitions: [
+            {
+              attributeName: 'partitionKey',
+              attributeType: 'S'
+            }
+          ]
+        }
+      },
+      tables: {
+        TestTable: {
+          test: {
+            partitionKey: 'test',
+            testSet: {
+              values: [
+                '1'
+              ]
+            }
+          }
+        }
+      }
+    });
+  });
+
+  test('delete from set', async () => {
     const client = documentClient({
       defns: {
         TestTable: {
@@ -224,7 +257,55 @@ describe('client can update documents', () => {
           ]
         }
       }
-    })
-  })
+    });
+  });
 
+  test('delete empty set', async () => {
+    const client = documentClient({
+      defns: {
+        TestTable: {
+          keySchema: [
+            {
+              keyType: 'HASH',
+              attributeName: 'partitionKey'
+            }
+          ],
+          attributeDefinitions: [
+            {
+              attributeName: 'partitionKey',
+              attributeType: 'S'
+            }
+          ]
+        }
+      },
+      tables: {
+        TestTable: {
+          test: {
+            partitionKey: 'test',
+            testSet: {
+              values: [
+                '1'
+              ]
+            }
+          }
+        }
+      }
+    });
+    const resp = await client.update({
+      TableName: 'TestTable',
+      Key: { partitionKey: 'test' },
+      ReturnValues: 'ALL_NEW',
+      UpdateExpression: 'delete testSet :testSet',
+      ExpressionAttributeValues: {
+        ':testSet': client.createSet([
+          '1'
+        ])
+      }
+    }).promise();
+    expect(resp).toEqual({
+      Attributes: {
+        partitionKey: 'test'
+      }
+    });
+  });
 });
