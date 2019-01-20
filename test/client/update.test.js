@@ -203,6 +203,77 @@ describe('client can update documents', () => {
         }
       }
     });
+    const resp = await client.update({
+      TableName: 'TestTable',
+      Key: { partitionKey: 'test' },
+      ReturnValues: 'ALL_NEW',
+      UpdateExpression: 'add testSet :testSet',
+      ExpressionAttributeValues: {
+        ':testSet': client.createSet([
+          '2'
+        ])
+      }
+    }).promise();
+    expect(resp).toEqual({
+      Attributes: {
+        partitionKey: 'test',
+        testSet: {
+          values: [
+            '1',
+            '2'
+          ]
+        }
+      }
+    });
+  });
+
+  test('add to not existing set', async () => {
+    const client = documentClient({
+      defns: {
+        TestTable: {
+          keySchema: [
+            {
+              keyType: 'HASH',
+              attributeName: 'partitionKey'
+            }
+          ],
+          attributeDefinitions: [
+            {
+              attributeName: 'partitionKey',
+              attributeType: 'S'
+            }
+          ]
+        }
+      },
+      tables: {
+        TestTable: {
+          test: {
+            partitionKey: 'test'
+          }
+        }
+      }
+    });
+    const resp = await client.update({
+      TableName: 'TestTable',
+      Key: { partitionKey: 'test' },
+      ReturnValues: 'ALL_NEW',
+      UpdateExpression: 'add testSet :testSet',
+      ExpressionAttributeValues: {
+        ':testSet': client.createSet([
+          '1'
+        ])
+      }
+    }).promise();
+    expect(resp).toEqual({
+      Attributes: {
+        partitionKey: 'test',
+        testSet: {
+          values: [
+            '1'
+          ]
+        }
+      }
+    });
   });
 
   test('delete from set', async () => {
