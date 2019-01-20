@@ -46,6 +46,49 @@ describe('client can update documents', () => {
     });
   });
 
+  test('set non-existing document', async () => {
+    const client = documentClient({
+      defns: {
+        TestTable: {
+          keySchema: [
+            {
+              keyType: 'HASH',
+              attributeName: 'partitionKey'
+            }
+          ],
+          attributeDefinitions: [
+            {
+              attributeName: 'partitionKey',
+              attributeType: 'S'
+            }
+          ]
+        }
+      },
+      tables: {
+        TestTable: {}
+      }
+    });
+    await client.update({
+      TableName: 'TestTable',
+      Key: { partitionKey: 'test' },
+      ReturnValues: 'ALL_NEW',
+      UpdateExpression: 'set test = :test',
+      ExpressionAttributeValues: {
+        ':test': 1
+      }
+    }).promise();
+    const doc = await client.get({
+      TableName: 'TestTable',
+      Key: { partitionKey: 'test' }
+    }).promise();
+    expect(doc).toEqual({
+      Item: {
+        partitionKey: 'test',
+        test: 1
+      }
+    });
+  });
+
   test('ALL_NEW hashKey document', async () => {
     const client = documentClient({
       defns: {
