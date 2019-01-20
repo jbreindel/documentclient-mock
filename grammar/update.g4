@@ -1,6 +1,10 @@
 grammar update;
 
 update
+  : updateaction+
+  ;
+
+updateaction
   : SET setaction (COMMA setaction)*            #setUpdate
   | REMOVE removeaction (COMMA removeaction)*   #removeUpdate
   | ADD addaction (COMMA addaction)*            #addUpdate

@@ -379,4 +379,66 @@ describe('client can update documents', () => {
       }
     });
   });
+
+  test('set and delete', async () => {
+    const client = documentClient({
+      defns: {
+        TestTable: {
+          keySchema: [
+            {
+              keyType: 'HASH',
+              attributeName: 'partitionKey'
+            }
+          ],
+          attributeDefinitions: [
+            {
+              attributeName: 'partitionKey',
+              attributeType: 'S'
+            }
+          ]
+        }
+      },
+      tables: {
+        TestTable: {
+          test: {
+            partitionKey: 'test',
+            testSet: {
+              values: [
+                '1',
+                '2'
+              ]
+            }
+          }
+        }
+      }
+    });
+    const now = new Date().toISOString();
+    const resp = await client.update({
+      TableName: 'TestTable',
+      Key: { partitionKey: 'test' },
+      ReturnValues: 'ALL_NEW',
+      UpdateExpression: `
+        set
+          modified = :modified
+        delete testSet :testSet
+      `,
+      ExpressionAttributeValues: {
+        ':modified': now,
+        ':testSet': client.createSet([
+          '2'
+        ])
+      }
+    }).promise();
+    expect(resp).toEqual({
+      Attributes: {
+        partitionKey: 'test',
+        modified: now,
+        testSet: {
+          values: [
+            '1'
+          ]
+        }
+      }
+    });
+  });
 });

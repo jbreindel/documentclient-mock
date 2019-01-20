@@ -12,6 +12,12 @@ function updateVisitor() {
 updateVisitor.prototype = Object.create(antlr4.tree.ParseTreeVisitor.prototype);
 updateVisitor.prototype.constructor = updateVisitor;
 
+// Visit a parse tree produced by updateParser#update.
+updateVisitor.prototype.visitUpdate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by updateParser#setUpdate.
 updateVisitor.prototype.visitSetUpdate = function(ctx) {
   return this.visitChildren(ctx);

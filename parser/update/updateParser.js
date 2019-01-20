@@ -7,62 +7,64 @@ var updateVisitor = require('./updateVisitor').updateVisitor;
 var grammarFileName = "update.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003\u0010a\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
+    "\u0003\u0010h\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
     "\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004",
-    "\b\t\b\u0003\u0002\u0003\u0002\u0003\u0002\u0003\u0002\u0007\u0002\u0015",
-    "\n\u0002\f\u0002\u000e\u0002\u0018\u000b\u0002\u0003\u0002\u0003\u0002",
-    "\u0003\u0002\u0003\u0002\u0007\u0002\u001e\n\u0002\f\u0002\u000e\u0002",
-    "!\u000b\u0002\u0003\u0002\u0003\u0002\u0003\u0002\u0003\u0002\u0007",
-    "\u0002\'\n\u0002\f\u0002\u000e\u0002*\u000b\u0002\u0003\u0002\u0003",
-    "\u0002\u0003\u0002\u0003\u0002\u0007\u00020\n\u0002\f\u0002\u000e\u0002",
-    "3\u000b\u0002\u0005\u00025\n\u0002\u0003\u0003\u0003\u0003\u0003\u0003",
-    "\u0003\u0003\u0003\u0004\u0003\u0004\u0003\u0005\u0003\u0005\u0003\u0005",
-    "\u0003\u0006\u0003\u0006\u0003\u0006\u0003\u0007\u0003\u0007\u0003\u0007",
-    "\u0005\u0007F\n\u0007\u0003\u0007\u0003\u0007\u0003\u0007\u0003\u0007",
-    "\u0003\u0007\u0003\u0007\u0007\u0007N\n\u0007\f\u0007\u000e\u0007Q\u000b",
-    "\u0007\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003",
-    "\b\u0003\b\u0003\b\u0003\b\u0003\b\u0005\b_\n\b\u0003\b\u0002\u0003",
-    "\f\t\u0002\u0004\u0006\b\n\f\u000e\u0002\u0002\u0002d\u00024\u0003\u0002",
-    "\u0002\u0002\u00046\u0003\u0002\u0002\u0002\u0006:\u0003\u0002\u0002",
-    "\u0002\b<\u0003\u0002\u0002\u0002\n?\u0003\u0002\u0002\u0002\fE\u0003",
-    "\u0002\u0002\u0002\u000e^\u0003\u0002\u0002\u0002\u0010\u0011\u0007",
-    "\u0003\u0002\u0002\u0011\u0016\u0005\u0004\u0003\u0002\u0012\u0013\u0007",
-    "\f\u0002\u0002\u0013\u0015\u0005\u0004\u0003\u0002\u0014\u0012\u0003",
-    "\u0002\u0002\u0002\u0015\u0018\u0003\u0002\u0002\u0002\u0016\u0014\u0003",
-    "\u0002\u0002\u0002\u0016\u0017\u0003\u0002\u0002\u0002\u00175\u0003",
-    "\u0002\u0002\u0002\u0018\u0016\u0003\u0002\u0002\u0002\u0019\u001a\u0007",
-    "\u0004\u0002\u0002\u001a\u001f\u0005\u0006\u0004\u0002\u001b\u001c\u0007",
-    "\f\u0002\u0002\u001c\u001e\u0005\u0006\u0004\u0002\u001d\u001b\u0003",
-    "\u0002\u0002\u0002\u001e!\u0003\u0002\u0002\u0002\u001f\u001d\u0003",
-    "\u0002\u0002\u0002\u001f \u0003\u0002\u0002\u0002 5\u0003\u0002\u0002",
-    "\u0002!\u001f\u0003\u0002\u0002\u0002\"#\u0007\u0005\u0002\u0002#(\u0005",
-    "\b\u0005\u0002$%\u0007\f\u0002\u0002%\'\u0005\b\u0005\u0002&$\u0003",
-    "\u0002\u0002\u0002\'*\u0003\u0002\u0002\u0002(&\u0003\u0002\u0002\u0002",
-    "()\u0003\u0002\u0002\u0002)5\u0003\u0002\u0002\u0002*(\u0003\u0002\u0002",
-    "\u0002+,\u0007\u0006\u0002\u0002,1\u0005\n\u0006\u0002-.\u0007\f\u0002",
-    "\u0002.0\u0005\n\u0006\u0002/-\u0003\u0002\u0002\u000203\u0003\u0002",
-    "\u0002\u00021/\u0003\u0002\u0002\u000212\u0003\u0002\u0002\u000225\u0003",
-    "\u0002\u0002\u000231\u0003\u0002\u0002\u00024\u0010\u0003\u0002\u0002",
-    "\u00024\u0019\u0003\u0002\u0002\u00024\"\u0003\u0002\u0002\u00024+\u0003",
-    "\u0002\u0002\u00025\u0003\u0003\u0002\u0002\u000267\u0007\u000f\u0002",
-    "\u000278\u0007\u0007\u0002\u000289\u0005\f\u0007\u00029\u0005\u0003",
-    "\u0002\u0002\u0002:;\u0007\u000f\u0002\u0002;\u0007\u0003\u0002\u0002",
-    "\u0002<=\u0007\u000f\u0002\u0002=>\u0007\u000f\u0002\u0002>\t\u0003",
-    "\u0002\u0002\u0002?@\u0007\u000f\u0002\u0002@A\u0007\u000f\u0002\u0002",
-    "A\u000b\u0003\u0002\u0002\u0002BC\b\u0007\u0001\u0002CF\u0005\u000e",
-    "\b\u0002DF\u0007\u000f\u0002\u0002EB\u0003\u0002\u0002\u0002ED\u0003",
-    "\u0002\u0002\u0002FO\u0003\u0002\u0002\u0002GH\f\u0006\u0002\u0002H",
-    "I\u0007\b\u0002\u0002IN\u0005\f\u0007\u0007JK\f\u0005\u0002\u0002KL",
-    "\u0007\t\u0002\u0002LN\u0005\f\u0007\u0006MG\u0003\u0002\u0002\u0002",
-    "MJ\u0003\u0002\u0002\u0002NQ\u0003\u0002\u0002\u0002OM\u0003\u0002\u0002",
-    "\u0002OP\u0003\u0002\u0002\u0002P\r\u0003\u0002\u0002\u0002QO\u0003",
-    "\u0002\u0002\u0002RS\u0007\u000e\u0002\u0002ST\u0007\n\u0002\u0002T",
-    "U\u0007\u000f\u0002\u0002UV\u0007\f\u0002\u0002VW\u0007\u000f\u0002",
-    "\u0002W_\u0007\u000b\u0002\u0002XY\u0007\r\u0002\u0002YZ\u0007\n\u0002",
-    "\u0002Z[\u0007\u000f\u0002\u0002[\\\u0007\f\u0002\u0002\\]\u0007\u000f",
-    "\u0002\u0002]_\u0007\u000b\u0002\u0002^R\u0003\u0002\u0002\u0002^X\u0003",
-    "\u0002\u0002\u0002_\u000f\u0003\u0002\u0002\u0002\u000b\u0016\u001f",
-    "(14EMO^"].join("");
+    "\b\t\b\u0004\t\t\t\u0003\u0002\u0006\u0002\u0014\n\u0002\r\u0002\u000e",
+    "\u0002\u0015\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0007\u0003",
+    "\u001c\n\u0003\f\u0003\u000e\u0003\u001f\u000b\u0003\u0003\u0003\u0003",
+    "\u0003\u0003\u0003\u0003\u0003\u0007\u0003%\n\u0003\f\u0003\u000e\u0003",
+    "(\u000b\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0007",
+    "\u0003.\n\u0003\f\u0003\u000e\u00031\u000b\u0003\u0003\u0003\u0003\u0003",
+    "\u0003\u0003\u0003\u0003\u0007\u00037\n\u0003\f\u0003\u000e\u0003:\u000b",
+    "\u0003\u0005\u0003<\n\u0003\u0003\u0004\u0003\u0004\u0003\u0004\u0003",
+    "\u0004\u0003\u0005\u0003\u0005\u0003\u0006\u0003\u0006\u0003\u0006\u0003",
+    "\u0007\u0003\u0007\u0003\u0007\u0003\b\u0003\b\u0003\b\u0005\bM\n\b",
+    "\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0007\bU\n\b\f\b\u000e",
+    "\bX\u000b\b\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t",
+    "\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0005\tf\n\t\u0003\t\u0002",
+    "\u0003\u000e\n\u0002\u0004\u0006\b\n\f\u000e\u0010\u0002\u0002\u0002",
+    "k\u0002\u0013\u0003\u0002\u0002\u0002\u0004;\u0003\u0002\u0002\u0002",
+    "\u0006=\u0003\u0002\u0002\u0002\bA\u0003\u0002\u0002\u0002\nC\u0003",
+    "\u0002\u0002\u0002\fF\u0003\u0002\u0002\u0002\u000eL\u0003\u0002\u0002",
+    "\u0002\u0010e\u0003\u0002\u0002\u0002\u0012\u0014\u0005\u0004\u0003",
+    "\u0002\u0013\u0012\u0003\u0002\u0002\u0002\u0014\u0015\u0003\u0002\u0002",
+    "\u0002\u0015\u0013\u0003\u0002\u0002\u0002\u0015\u0016\u0003\u0002\u0002",
+    "\u0002\u0016\u0003\u0003\u0002\u0002\u0002\u0017\u0018\u0007\u0003\u0002",
+    "\u0002\u0018\u001d\u0005\u0006\u0004\u0002\u0019\u001a\u0007\f\u0002",
+    "\u0002\u001a\u001c\u0005\u0006\u0004\u0002\u001b\u0019\u0003\u0002\u0002",
+    "\u0002\u001c\u001f\u0003\u0002\u0002\u0002\u001d\u001b\u0003\u0002\u0002",
+    "\u0002\u001d\u001e\u0003\u0002\u0002\u0002\u001e<\u0003\u0002\u0002",
+    "\u0002\u001f\u001d\u0003\u0002\u0002\u0002 !\u0007\u0004\u0002\u0002",
+    "!&\u0005\b\u0005\u0002\"#\u0007\f\u0002\u0002#%\u0005\b\u0005\u0002",
+    "$\"\u0003\u0002\u0002\u0002%(\u0003\u0002\u0002\u0002&$\u0003\u0002",
+    "\u0002\u0002&\'\u0003\u0002\u0002\u0002\'<\u0003\u0002\u0002\u0002(",
+    "&\u0003\u0002\u0002\u0002)*\u0007\u0005\u0002\u0002*/\u0005\n\u0006",
+    "\u0002+,\u0007\f\u0002\u0002,.\u0005\n\u0006\u0002-+\u0003\u0002\u0002",
+    "\u0002.1\u0003\u0002\u0002\u0002/-\u0003\u0002\u0002\u0002/0\u0003\u0002",
+    "\u0002\u00020<\u0003\u0002\u0002\u00021/\u0003\u0002\u0002\u000223\u0007",
+    "\u0006\u0002\u000238\u0005\f\u0007\u000245\u0007\f\u0002\u000257\u0005",
+    "\f\u0007\u000264\u0003\u0002\u0002\u00027:\u0003\u0002\u0002\u00028",
+    "6\u0003\u0002\u0002\u000289\u0003\u0002\u0002\u00029<\u0003\u0002\u0002",
+    "\u0002:8\u0003\u0002\u0002\u0002;\u0017\u0003\u0002\u0002\u0002; \u0003",
+    "\u0002\u0002\u0002;)\u0003\u0002\u0002\u0002;2\u0003\u0002\u0002\u0002",
+    "<\u0005\u0003\u0002\u0002\u0002=>\u0007\u000f\u0002\u0002>?\u0007\u0007",
+    "\u0002\u0002?@\u0005\u000e\b\u0002@\u0007\u0003\u0002\u0002\u0002AB",
+    "\u0007\u000f\u0002\u0002B\t\u0003\u0002\u0002\u0002CD\u0007\u000f\u0002",
+    "\u0002DE\u0007\u000f\u0002\u0002E\u000b\u0003\u0002\u0002\u0002FG\u0007",
+    "\u000f\u0002\u0002GH\u0007\u000f\u0002\u0002H\r\u0003\u0002\u0002\u0002",
+    "IJ\b\b\u0001\u0002JM\u0005\u0010\t\u0002KM\u0007\u000f\u0002\u0002L",
+    "I\u0003\u0002\u0002\u0002LK\u0003\u0002\u0002\u0002MV\u0003\u0002\u0002",
+    "\u0002NO\f\u0006\u0002\u0002OP\u0007\b\u0002\u0002PU\u0005\u000e\b\u0007",
+    "QR\f\u0005\u0002\u0002RS\u0007\t\u0002\u0002SU\u0005\u000e\b\u0006T",
+    "N\u0003\u0002\u0002\u0002TQ\u0003\u0002\u0002\u0002UX\u0003\u0002\u0002",
+    "\u0002VT\u0003\u0002\u0002\u0002VW\u0003\u0002\u0002\u0002W\u000f\u0003",
+    "\u0002\u0002\u0002XV\u0003\u0002\u0002\u0002YZ\u0007\u000e\u0002\u0002",
+    "Z[\u0007\n\u0002\u0002[\\\u0007\u000f\u0002\u0002\\]\u0007\f\u0002\u0002",
+    "]^\u0007\u000f\u0002\u0002^f\u0007\u000b\u0002\u0002_`\u0007\r\u0002",
+    "\u0002`a\u0007\n\u0002\u0002ab\u0007\u000f\u0002\u0002bc\u0007\f\u0002",
+    "\u0002cd\u0007\u000f\u0002\u0002df\u0007\u000b\u0002\u0002eY\u0003\u0002",
+    "\u0002\u0002e_\u0003\u0002\u0002\u0002f\u0011\u0003\u0002\u0002\u0002",
+    "\f\u0015\u001d&/8;LTVe"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -78,8 +80,8 @@ var symbolicNames = [ null, "SET", "REMOVE", "ADD", "DELETE", "EQ", "PLUS",
                       "MINUS", "LPAREN", "RPAREN", "COMMA", "LIST_APPEND", 
                       "IF_NOT_EXISTS", "OPERAND", "WS" ];
 
-var ruleNames =  [ "update", "setaction", "removeaction", "addaction", "deleteaction", 
-                   "setvalue", "setfunc" ];
+var ruleNames =  [ "update", "updateaction", "setaction", "removeaction", 
+                   "addaction", "deleteaction", "setvalue", "setfunc" ];
 
 function updateParser (input) {
 	antlr4.Parser.call(this, input);
@@ -116,12 +118,13 @@ updateParser.OPERAND = 13;
 updateParser.WS = 14;
 
 updateParser.RULE_update = 0;
-updateParser.RULE_setaction = 1;
-updateParser.RULE_removeaction = 2;
-updateParser.RULE_addaction = 3;
-updateParser.RULE_deleteaction = 4;
-updateParser.RULE_setvalue = 5;
-updateParser.RULE_setfunc = 6;
+updateParser.RULE_updateaction = 1;
+updateParser.RULE_setaction = 2;
+updateParser.RULE_removeaction = 3;
+updateParser.RULE_addaction = 4;
+updateParser.RULE_deleteaction = 5;
+updateParser.RULE_setvalue = 6;
+updateParser.RULE_setfunc = 7;
 
 function UpdateContext(parser, parent, invokingState) {
 	if(parent===undefined) {
@@ -139,20 +142,103 @@ function UpdateContext(parser, parent, invokingState) {
 UpdateContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
 UpdateContext.prototype.constructor = UpdateContext;
 
+UpdateContext.prototype.updateaction = function(i) {
+    if(i===undefined) {
+        i = null;
+    }
+    if(i===null) {
+        return this.getTypedRuleContexts(UpdateactionContext);
+    } else {
+        return this.getTypedRuleContext(UpdateactionContext,i);
+    }
+};
+
+UpdateContext.prototype.enterRule = function(listener) {
+    if(listener instanceof updateListener ) {
+        listener.enterUpdate(this);
+	}
+};
+
+UpdateContext.prototype.exitRule = function(listener) {
+    if(listener instanceof updateListener ) {
+        listener.exitUpdate(this);
+	}
+};
+
+UpdateContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof updateVisitor ) {
+        return visitor.visitUpdate(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+updateParser.UpdateContext = UpdateContext;
+
+updateParser.prototype.update = function() {
+
+    var localctx = new UpdateContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 0, updateParser.RULE_update);
+    var _la = 0; // Token type
+    try {
+        this.enterOuterAlt(localctx, 1);
+        this.state = 17; 
+        this._errHandler.sync(this);
+        _la = this._input.LA(1);
+        do {
+            this.state = 16;
+            this.updateaction();
+            this.state = 19; 
+            this._errHandler.sync(this);
+            _la = this._input.LA(1);
+        } while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << updateParser.SET) | (1 << updateParser.REMOVE) | (1 << updateParser.ADD) | (1 << updateParser.DELETE))) !== 0));
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
+
+function UpdateactionContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = updateParser.RULE_updateaction;
+    return this;
+}
+
+UpdateactionContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+UpdateactionContext.prototype.constructor = UpdateactionContext;
+
 
  
-UpdateContext.prototype.copyFrom = function(ctx) {
+UpdateactionContext.prototype.copyFrom = function(ctx) {
     antlr4.ParserRuleContext.prototype.copyFrom.call(this, ctx);
 };
 
 
 function RemoveUpdateContext(parser, ctx) {
-	UpdateContext.call(this, parser);
-    UpdateContext.prototype.copyFrom.call(this, ctx);
+	UpdateactionContext.call(this, parser);
+    UpdateactionContext.prototype.copyFrom.call(this, ctx);
     return this;
 }
 
-RemoveUpdateContext.prototype = Object.create(UpdateContext.prototype);
+RemoveUpdateContext.prototype = Object.create(UpdateactionContext.prototype);
 RemoveUpdateContext.prototype.constructor = RemoveUpdateContext;
 
 updateParser.RemoveUpdateContext = RemoveUpdateContext;
@@ -205,12 +291,12 @@ RemoveUpdateContext.prototype.accept = function(visitor) {
 
 
 function SetUpdateContext(parser, ctx) {
-	UpdateContext.call(this, parser);
-    UpdateContext.prototype.copyFrom.call(this, ctx);
+	UpdateactionContext.call(this, parser);
+    UpdateactionContext.prototype.copyFrom.call(this, ctx);
     return this;
 }
 
-SetUpdateContext.prototype = Object.create(UpdateContext.prototype);
+SetUpdateContext.prototype = Object.create(UpdateactionContext.prototype);
 SetUpdateContext.prototype.constructor = SetUpdateContext;
 
 updateParser.SetUpdateContext = SetUpdateContext;
@@ -263,12 +349,12 @@ SetUpdateContext.prototype.accept = function(visitor) {
 
 
 function DeleteUpdateContext(parser, ctx) {
-	UpdateContext.call(this, parser);
-    UpdateContext.prototype.copyFrom.call(this, ctx);
+	UpdateactionContext.call(this, parser);
+    UpdateactionContext.prototype.copyFrom.call(this, ctx);
     return this;
 }
 
-DeleteUpdateContext.prototype = Object.create(UpdateContext.prototype);
+DeleteUpdateContext.prototype = Object.create(UpdateactionContext.prototype);
 DeleteUpdateContext.prototype.constructor = DeleteUpdateContext;
 
 updateParser.DeleteUpdateContext = DeleteUpdateContext;
@@ -321,12 +407,12 @@ DeleteUpdateContext.prototype.accept = function(visitor) {
 
 
 function AddUpdateContext(parser, ctx) {
-	UpdateContext.call(this, parser);
-    UpdateContext.prototype.copyFrom.call(this, ctx);
+	UpdateactionContext.call(this, parser);
+    UpdateactionContext.prototype.copyFrom.call(this, ctx);
     return this;
 }
 
-AddUpdateContext.prototype = Object.create(UpdateContext.prototype);
+AddUpdateContext.prototype = Object.create(UpdateactionContext.prototype);
 AddUpdateContext.prototype.constructor = AddUpdateContext;
 
 updateParser.AddUpdateContext = AddUpdateContext;
@@ -379,33 +465,33 @@ AddUpdateContext.prototype.accept = function(visitor) {
 
 
 
-updateParser.UpdateContext = UpdateContext;
+updateParser.UpdateactionContext = UpdateactionContext;
 
-updateParser.prototype.update = function() {
+updateParser.prototype.updateaction = function() {
 
-    var localctx = new UpdateContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 0, updateParser.RULE_update);
+    var localctx = new UpdateactionContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 2, updateParser.RULE_updateaction);
     var _la = 0; // Token type
     try {
-        this.state = 50;
+        this.state = 57;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case updateParser.SET:
             localctx = new SetUpdateContext(this, localctx);
             this.enterOuterAlt(localctx, 1);
-            this.state = 14;
+            this.state = 21;
             this.match(updateParser.SET);
-            this.state = 15;
+            this.state = 22;
             this.setaction();
-            this.state = 20;
+            this.state = 27;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while(_la===updateParser.COMMA) {
-                this.state = 16;
+                this.state = 23;
                 this.match(updateParser.COMMA);
-                this.state = 17;
+                this.state = 24;
                 this.setaction();
-                this.state = 22;
+                this.state = 29;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
             }
@@ -413,19 +499,19 @@ updateParser.prototype.update = function() {
         case updateParser.REMOVE:
             localctx = new RemoveUpdateContext(this, localctx);
             this.enterOuterAlt(localctx, 2);
-            this.state = 23;
+            this.state = 30;
             this.match(updateParser.REMOVE);
-            this.state = 24;
+            this.state = 31;
             this.removeaction();
-            this.state = 29;
+            this.state = 36;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while(_la===updateParser.COMMA) {
-                this.state = 25;
+                this.state = 32;
                 this.match(updateParser.COMMA);
-                this.state = 26;
+                this.state = 33;
                 this.removeaction();
-                this.state = 31;
+                this.state = 38;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
             }
@@ -433,19 +519,19 @@ updateParser.prototype.update = function() {
         case updateParser.ADD:
             localctx = new AddUpdateContext(this, localctx);
             this.enterOuterAlt(localctx, 3);
-            this.state = 32;
+            this.state = 39;
             this.match(updateParser.ADD);
-            this.state = 33;
+            this.state = 40;
             this.addaction();
-            this.state = 38;
+            this.state = 45;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while(_la===updateParser.COMMA) {
-                this.state = 34;
+                this.state = 41;
                 this.match(updateParser.COMMA);
-                this.state = 35;
+                this.state = 42;
                 this.addaction();
-                this.state = 40;
+                this.state = 47;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
             }
@@ -453,19 +539,19 @@ updateParser.prototype.update = function() {
         case updateParser.DELETE:
             localctx = new DeleteUpdateContext(this, localctx);
             this.enterOuterAlt(localctx, 4);
-            this.state = 41;
+            this.state = 48;
             this.match(updateParser.DELETE);
-            this.state = 42;
+            this.state = 49;
             this.deleteaction();
-            this.state = 47;
+            this.state = 54;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while(_la===updateParser.COMMA) {
-                this.state = 43;
+                this.state = 50;
                 this.match(updateParser.COMMA);
-                this.state = 44;
+                this.state = 51;
                 this.deleteaction();
-                this.state = 49;
+                this.state = 56;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
             }
@@ -561,15 +647,15 @@ updateParser.SetactionContext = SetactionContext;
 updateParser.prototype.setaction = function() {
 
     var localctx = new SetactionContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 2, updateParser.RULE_setaction);
+    this.enterRule(localctx, 4, updateParser.RULE_setaction);
     try {
         localctx = new SetActionContext(this, localctx);
         this.enterOuterAlt(localctx, 1);
-        this.state = 52;
+        this.state = 59;
         localctx.path = this.match(updateParser.OPERAND);
-        this.state = 53;
+        this.state = 60;
         this.match(updateParser.EQ);
-        this.state = 54;
+        this.state = 61;
         localctx.result = this.setvalue(0);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -650,11 +736,11 @@ updateParser.RemoveactionContext = RemoveactionContext;
 updateParser.prototype.removeaction = function() {
 
     var localctx = new RemoveactionContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 4, updateParser.RULE_removeaction);
+    this.enterRule(localctx, 6, updateParser.RULE_removeaction);
     try {
         localctx = new RemoveActionContext(this, localctx);
         this.enterOuterAlt(localctx, 1);
-        this.state = 56;
+        this.state = 63;
         localctx.path = this.match(updateParser.OPERAND);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -744,13 +830,13 @@ updateParser.AddactionContext = AddactionContext;
 updateParser.prototype.addaction = function() {
 
     var localctx = new AddactionContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 6, updateParser.RULE_addaction);
+    this.enterRule(localctx, 8, updateParser.RULE_addaction);
     try {
         localctx = new AddActionContext(this, localctx);
         this.enterOuterAlt(localctx, 1);
-        this.state = 58;
+        this.state = 65;
         localctx.path = this.match(updateParser.OPERAND);
-        this.state = 59;
+        this.state = 66;
         localctx.value = this.match(updateParser.OPERAND);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -840,13 +926,13 @@ updateParser.DeleteactionContext = DeleteactionContext;
 updateParser.prototype.deleteaction = function() {
 
     var localctx = new DeleteactionContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 8, updateParser.RULE_deleteaction);
+    this.enterRule(localctx, 10, updateParser.RULE_deleteaction);
     try {
         localctx = new DeleteActionContext(this, localctx);
         this.enterOuterAlt(localctx, 1);
-        this.state = 61;
+        this.state = 68;
         localctx.path = this.match(updateParser.OPERAND);
-        this.state = 62;
+        this.state = 69;
         localctx.value = this.match(updateParser.OPERAND);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1060,11 +1146,11 @@ updateParser.prototype.setvalue = function(_p) {
     var _parentState = this.state;
     var localctx = new SetvalueContext(this, this._ctx, _parentState);
     var _prevctx = localctx;
-    var _startState = 10;
-    this.enterRecursionRule(localctx, 10, updateParser.RULE_setvalue, _p);
+    var _startState = 12;
+    this.enterRecursionRule(localctx, 12, updateParser.RULE_setvalue, _p);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 67;
+        this.state = 74;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case updateParser.LIST_APPEND:
@@ -1073,44 +1159,44 @@ updateParser.prototype.setvalue = function(_p) {
             this._ctx = localctx;
             _prevctx = localctx;
 
-            this.state = 65;
+            this.state = 72;
             this.setfunc();
             break;
         case updateParser.OPERAND:
             localctx = new ValSetValueContext(this, localctx);
             this._ctx = localctx;
             _prevctx = localctx;
-            this.state = 66;
+            this.state = 73;
             localctx.op = this.match(updateParser.OPERAND);
             break;
         default:
             throw new antlr4.error.NoViableAltException(this);
         }
         this._ctx.stop = this._input.LT(-1);
-        this.state = 77;
+        this.state = 84;
         this._errHandler.sync(this);
-        var _alt = this._interp.adaptivePredict(this._input,7,this._ctx)
+        var _alt = this._interp.adaptivePredict(this._input,8,this._ctx)
         while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
             if(_alt===1) {
                 if(this._parseListeners!==null) {
                     this.triggerExitRuleEvent();
                 }
                 _prevctx = localctx;
-                this.state = 75;
+                this.state = 82;
                 this._errHandler.sync(this);
-                var la_ = this._interp.adaptivePredict(this._input,6,this._ctx);
+                var la_ = this._interp.adaptivePredict(this._input,7,this._ctx);
                 switch(la_) {
                 case 1:
                     localctx = new IncSetValueContext(this, new SetvalueContext(this, _parentctx, _parentState));
                     localctx.leftVal = _prevctx;
                     this.pushNewRecursionContext(localctx, _startState, updateParser.RULE_setvalue);
-                    this.state = 69;
+                    this.state = 76;
                     if (!( this.precpred(this._ctx, 4))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 4)");
                     }
-                    this.state = 70;
+                    this.state = 77;
                     this.match(updateParser.PLUS);
-                    this.state = 71;
+                    this.state = 78;
                     localctx.rightVal = this.setvalue(5);
                     break;
 
@@ -1118,21 +1204,21 @@ updateParser.prototype.setvalue = function(_p) {
                     localctx = new DecSetValueContext(this, new SetvalueContext(this, _parentctx, _parentState));
                     localctx.leftVal = _prevctx;
                     this.pushNewRecursionContext(localctx, _startState, updateParser.RULE_setvalue);
-                    this.state = 72;
+                    this.state = 79;
                     if (!( this.precpred(this._ctx, 3))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 3)");
                     }
-                    this.state = 73;
+                    this.state = 80;
                     this.match(updateParser.MINUS);
-                    this.state = 74;
+                    this.state = 81;
                     localctx.rightVal = this.setvalue(4);
                     break;
 
                 } 
             }
-            this.state = 79;
+            this.state = 86;
             this._errHandler.sync(this);
-            _alt = this._interp.adaptivePredict(this._input,7,this._ctx);
+            _alt = this._interp.adaptivePredict(this._input,8,this._ctx);
         }
 
     } catch( error) {
@@ -1300,41 +1386,41 @@ updateParser.SetfuncContext = SetfuncContext;
 updateParser.prototype.setfunc = function() {
 
     var localctx = new SetfuncContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 12, updateParser.RULE_setfunc);
+    this.enterRule(localctx, 14, updateParser.RULE_setfunc);
     try {
-        this.state = 92;
+        this.state = 99;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case updateParser.IF_NOT_EXISTS:
             localctx = new IneSetFuncContext(this, localctx);
             this.enterOuterAlt(localctx, 1);
-            this.state = 80;
+            this.state = 87;
             this.match(updateParser.IF_NOT_EXISTS);
-            this.state = 81;
+            this.state = 88;
             this.match(updateParser.LPAREN);
-            this.state = 82;
+            this.state = 89;
             localctx.path = this.match(updateParser.OPERAND);
-            this.state = 83;
+            this.state = 90;
             this.match(updateParser.COMMA);
-            this.state = 84;
+            this.state = 91;
             localctx.val = this.match(updateParser.OPERAND);
-            this.state = 85;
+            this.state = 92;
             this.match(updateParser.RPAREN);
             break;
         case updateParser.LIST_APPEND:
             localctx = new LaSetFuncContext(this, localctx);
             this.enterOuterAlt(localctx, 2);
-            this.state = 86;
+            this.state = 93;
             this.match(updateParser.LIST_APPEND);
-            this.state = 87;
+            this.state = 94;
             this.match(updateParser.LPAREN);
-            this.state = 88;
+            this.state = 95;
             localctx.list1 = this.match(updateParser.OPERAND);
-            this.state = 89;
+            this.state = 96;
             this.match(updateParser.COMMA);
-            this.state = 90;
+            this.state = 97;
             localctx.list2 = this.match(updateParser.OPERAND);
-            this.state = 91;
+            this.state = 98;
             this.match(updateParser.RPAREN);
             break;
         default:
@@ -1357,7 +1443,7 @@ updateParser.prototype.setfunc = function() {
 
 updateParser.prototype.sempred = function(localctx, ruleIndex, predIndex) {
 	switch(ruleIndex) {
-	case 5:
+	case 6:
 			return this.setvalue_sempred(localctx, predIndex);
     default:
         throw "No predicate with index:" + ruleIndex;

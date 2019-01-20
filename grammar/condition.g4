@@ -9,41 +9,6 @@ condition
   | LPAREN condition RPAREN                             #parenCond
   ;
 
-update
-  : SET setaction (COMMA setaction)+            #setExpr
-  | REMOVE removeaction (COMMA removeaction)+   #removeExpr
-  | ADD addaction (COMMA addaction)+            #addExpr
-  | DELETE deleteaction (COMMA deleteaction)+   #deleteExpr
-  ;
-
-setaction
-  : path=OPERAND EQ result=setvalue             #setActionExpr
-  ;
-
-removeaction
-  : path=OPERAND                                #removeActionExpr
-  ;
-
-addaction
-  : path=OPERAND value=OPERAND                  #addActionExpr
-  ;
-
-deleteaction
-  : path=OPERAND value=OPERAND                  #deleteActionExpr
-  ;
-
-setvalue
-  : leftVal=setvalue PLUS rightVal=setvalue     #incSetValueExpr
-  | leftVal=setvalue MINUS rightVal=setvalue    #decSetValueExpr
-  | setfunc                                     #setFuncSetValueExpr
-  | OPERAND                                     #valSetValueExpr
-  ;
-
-setfunc
-  : IF_NOT_EXISTS LPAREN path=OPERAND COMMA val=OPERAND RPAREN    #ineSetFuncExpr
-  | LIST_APPEND LPAREN list1=OPERAND COMMA list2=OPERAND RPAREN   #laSetFuncExpr
-  ;
-
 comparator
   : EQ
   | NE

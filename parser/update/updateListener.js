@@ -11,6 +11,15 @@ function updateListener() {
 updateListener.prototype = Object.create(antlr4.tree.ParseTreeListener.prototype);
 updateListener.prototype.constructor = updateListener;
 
+// Enter a parse tree produced by updateParser#update.
+updateListener.prototype.enterUpdate = function(ctx) {
+};
+
+// Exit a parse tree produced by updateParser#update.
+updateListener.prototype.exitUpdate = function(ctx) {
+};
+
+
 // Enter a parse tree produced by updateParser#setUpdate.
 updateListener.prototype.enterSetUpdate = function(ctx) {
 };
