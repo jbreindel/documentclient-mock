@@ -24,6 +24,7 @@ module.exports = {
             "error",
             "single"
         ],
+        "no-useless-escape": 0,
         "semi": [
             "error",
             "always"

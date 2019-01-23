@@ -273,6 +273,156 @@ describe('client can update documents', () => {
     });
   });
 
+  test('set path on document', async () => {
+    const client = documentClient({
+      defns: {
+        TestTable: {
+          keySchema: [
+            {
+              keyType: 'HASH',
+              attributeName: 'partitionKey'
+            }
+          ],
+          attributeDefinitions: [
+            {
+              attributeName: 'partitionKey',
+              attributeType: 'S'
+            }
+          ]
+        }
+      },
+      tables: {
+        TestTable: {
+          test: {
+            partitionKey: 'test',
+            nested: {
+              test: 0
+            }
+          }
+        }
+      }
+    });
+    const resp = await client.update({
+      TableName: 'TestTable',
+      Key: { partitionKey: 'test' },
+      ReturnValues: 'ALL_NEW',
+      UpdateExpression: 'set nested.test = 1'
+    }).promise();
+    expect(resp).toEqual({
+      Attributes: {
+        partitionKey: 'test',
+        nested: {
+          test: 1
+        }
+      }
+    });
+  });
+
+  test('set path with names document', async () => {
+    const client = documentClient({
+      defns: {
+        TestTable: {
+          keySchema: [
+            {
+              keyType: 'HASH',
+              attributeName: 'partitionKey'
+            }
+          ],
+          attributeDefinitions: [
+            {
+              attributeName: 'partitionKey',
+              attributeType: 'S'
+            }
+          ]
+        }
+      },
+      tables: {
+        TestTable: {
+          test: {
+            partitionKey: 'test',
+            nested: {
+              test: 0
+            }
+          }
+        }
+      }
+    });
+    const resp = await client.update({
+      TableName: 'TestTable',
+      Key: { partitionKey: 'test' },
+      ReturnValues: 'ALL_NEW',
+      UpdateExpression: 'set #nested.#test = 1',
+      ExpressionAttributeNames: {
+        '#nested': 'nested',
+        '#test': 'test'
+      }
+    }).promise();
+    expect(resp).toEqual({
+      Attributes: {
+        partitionKey: 'test',
+        nested: {
+          test: 1
+        }
+      }
+    });
+  });
+
+  // FIXME cannot set path on array
+  // test('set path array on document', async () => {
+  //   const client = documentClient({
+  //     defns: {
+  //       TestTable: {
+  //         keySchema: [
+  //           {
+  //             keyType: 'HASH',
+  //             attributeName: 'partitionKey'
+  //           }
+  //         ],
+  //         attributeDefinitions: [
+  //           {
+  //             attributeName: 'partitionKey',
+  //             attributeType: 'S'
+  //           }
+  //         ]
+  //       }
+  //     },
+  //     tables: {
+  //       TestTable: {
+  //         test: {
+  //           partitionKey: 'test',
+  //           nested: [
+  //             {
+  //               test: 0
+  //             },
+  //             {
+  //               test: 1
+  //             }
+  //           ]
+  //         }
+  //       }
+  //     }
+  //   });
+  //   const resp = await client.update({
+  //     TableName: 'TestTable',
+  //     Key: { partitionKey: 'test' },
+  //     ReturnValues: 'ALL_NEW',
+  //     UpdateExpression: 'set nested[1].test = 2'
+  //   }).promise();
+  //   expect(resp).toEqual({
+  //     Attributes: {
+  //       partitionKey: 'test',
+  //       nested: [
+  //         {
+  //           test: 0
+  //         },
+  //         {
+  //           test: 2
+  //         }
+  //       ]
+  //     }
+  //   });
+  // });
+
   test('ExprAttrVals hashKey document', async () => {
     const client = documentClient({
       defns: {

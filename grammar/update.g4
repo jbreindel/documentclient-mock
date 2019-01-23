@@ -79,6 +79,6 @@ COMMA           : ',' ;
 LIST_APPEND     : L I S T '_' A P P E N D ;
 IF_NOT_EXISTS   : I F '_' N O T '_' E X I S T S ;
 
-OPERAND : ':'? '#'? [0-9a-zA-Z.]+ ;
+OPERAND : ':'? /[#0-9a-zA-Z.]+/ ;
 
 WS : [ \r\n] -> skip ;
