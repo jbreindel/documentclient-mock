@@ -32,12 +32,19 @@ describe('scan attribute_exists funcCond tests', () => {
     expect(ret).toBe(false);
   });
 
+  test('attribute_exists undefined', () => {
+    const ret = evaluateScan({
+      FilterExpression: 'attribute_exists(test)'
+    });
+    expect(ret).toBe(false);
+  });
+
   test('attribute_not_exists true', () => {
     const ret = evaluateScan({
       FilterExpression: 'attribute_not_exists(test)'
     }, {
       test2: 20
-    })
+    });
     expect(ret).toBe(true);
   });
 
@@ -46,7 +53,14 @@ describe('scan attribute_exists funcCond tests', () => {
       FilterExpression: 'attribute_not_exists(test)'
     }, {
       test: 20
-    })
+    });
     expect(ret).toBe(false);
   });
+
+  test('attribute_not_exists undefined', () => {
+    const ret = evaluateScan({
+      FilterExpression: 'attribute_not_exists(test)'
+    });
+    expect(ret).toBe(true);
+  })
 });
