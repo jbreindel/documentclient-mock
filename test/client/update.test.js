@@ -736,4 +736,52 @@ describe('client can update documents', () => {
       }
     });
   });
+
+  test('set from doc path', async () => {
+    const client = documentClient({
+      defns: {
+        TestTable: {
+          keySchema: [
+            {
+              keyType: 'HASH',
+              attributeName: 'partitionKey'
+            }
+          ],
+          attributeDefinitions: [
+            {
+              attributeName: 'partitionKey',
+              attributeType: 'S'
+            }
+          ]
+        }
+      },
+      tables: {
+        TestTable: {
+          test: {
+            partitionKey: 'test',
+            testTwo: 2
+          }
+        }
+      }
+    });
+    const resp = await client.update({
+      TableName: 'TestTable',
+      Key: { partitionKey: 'test' },
+      ReturnValues: 'ALL_NEW',
+      UpdateExpression: `
+        set #testOne = #testTwo
+      `,
+      ExpressionAttributeNames: {
+        '#testOne': 'testOne',
+        '#testTwo': 'testTwo'
+      }
+    }).promise();
+    expect(resp).toEqual({
+      Attributes: {
+        partitionKey: 'test',
+        testOne: 2,
+        testTwo: 2
+      }
+    });
+  });
 });
